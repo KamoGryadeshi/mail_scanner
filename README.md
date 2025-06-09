@@ -2,52 +2,52 @@
 Mail XLSX Scanner
 ==============================
 
-Программа для автоматического получения Excel-вложений из непрочитанных писем.
+A simple program to automatically retrieve Excel attachments from unread emails.
 
 ----------------------------------------
-Что делает
+What It Does
 ----------------------------------------
 
-- Подключается к IMAP-серверу
-- Проверяет входящие письма (непрочитанные)
-- Сохраняет вложения .xlsx в папку attachments
-- (Опционально) Загружает данные из файлов в SQLite через pandas
+- Connects to an IMAP server
+- Checks the inbox for unread messages
+- Saves .xlsx attachments to the attachments folder
+- (Optional) Loads data from the files into an SQLite database using pandas
 
 ----------------------------------------
-Структура проекта
+Project Structure
 ----------------------------------------
 
 mail-xlsx-scanner/
-├── main.py               # Точка входа (запускается по расписанию)
-├── mail_scanning.py      # Получение писем и сохранение вложений
-├── to_db.py              # Импорт данных из Excel в БД
-├── .env                  # Переменные окружения
-├── attachments/          # Папка для вложений
-├── requirements.txt      # Список зависимостей
-└── README.txt            # Этот файл
+├── main.py               # Entry point (triggered on schedule)
+├── mail_scanning.py      # Email fetching and attachment saving
+├── to_db.py              # Import data from Excel into the database
+├── .env                  # Environment variables
+├── attachments/          # Folder for downloaded attachments
+├── requirements.txt      # Dependencies list
+└── README.txt            # This file
 
 ----------------------------------------
-Установка и запуск
+Installation & Usage
 ----------------------------------------
 
-1. Установи зависимости:
+1. Install dependencies:
 
    pip install -r requirements.txt
 
-2. Создай файл .env:
+2. Create a `.env` file with your credentials:
 
-   USERNAME=your_email@example.com
-   MAIL_PASS=your_password
-   IMAP_SERVER=imap.yourmail.com
+   USERNAME=your_email@example.com  
+   MAIL_PASS=your_password  
+   IMAP_SERVER=imap.yourmail.com  
 
-3. Запусти вручную (для теста):
+3. Run manually (for testing):
 
    python main.py
 
 ----------------------------------------
-Зависимости
+Dependencies
 ----------------------------------------
 
-- imaplib, email (встроенные)
+- imaplib, email (standard libraries)
 - pandas, openpyxl
 - python-dotenv

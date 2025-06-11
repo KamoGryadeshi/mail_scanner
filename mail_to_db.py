@@ -37,8 +37,9 @@ def import_xlsx_to_db():
                     datetime.now().isoformat()
                 ))
 
-                print(f"[Успешно] Импортирован {filename} → таблица '{table_name}'")
                 show_table(table_name)
+                print(f"[Успешно] Импортирован {filename} → таблица '{table_name}'")
+
 
             except Exception as e:
                 print(f"[Ошибка] Не удалось импортировать {filename}: {e}")

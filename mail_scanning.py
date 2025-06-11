@@ -4,7 +4,8 @@ import os
 from email.header import decode_header
 from dotenv import load_dotenv
 
-username = os.getenv("USERNAME")
+load_dotenv()
+username = os.getenv("MAILUSERNAME")
 mail_pass = os.getenv("MAIL_PASS")
 imap_server = os.getenv("IMAP_SERVER")
 
@@ -61,3 +62,6 @@ def get_email():
 
     finally:
         imap.logout()
+
+if __name__ == '__main__':
+    get_email()
